@@ -1,0 +1,315 @@
+<?xml version="1.0" ?>
+<robot name="iris_demo">
+    <link name="base_link" />
+    <joint name="base_link_joint" type="fixed">
+        <origin rpy="0 0 1.5708" xyz="0 0 0" />
+        <parent link="base_link" />
+        <child link="iris_demo__iris__base_link" />
+    </joint>
+    <joint name="iris_demo__iris__iris/ground_truth/odometry_sensorgt_joint" type="fixed">
+        <parent link="iris_demo__iris__base_link" />
+        <child link="iris_demo__iris__iris/ground_truth/odometry_sensorgt_link" />
+        <origin xyz="0      0      0.19492" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="iris_demo__iris__iris/imu_joint" type="fixed">
+        <parent link="iris_demo__iris__base_link" />
+        <child link="iris_demo__iris__iris/imu_link" />
+        <origin xyz="0      0      0.19492" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" />
+    </joint>
+    <!-- 
+  <joint name="iris_demo__iris_gimbal_mount" type="fixed">
+    <parent link="iris_demo__iris__base_link"/>
+    <child link="iris_demo__gimbal_small_2d__base_link"/>
+    <origin xyz="0 -0.01014  0.07014" rpy="1.57 0   1.57"/>
+    <axis xyz="0.0e+00 1.0e+00 7.9e-04"/>
+    <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+  </joint>
+
+  <joint name="iris_demo__iris__rotor_0_joint" type="revolute">
+    <parent link="iris_demo__iris__base_link"/>
+    <child link="iris_demo__iris__rotor_0"/>
+    <origin xyz="0.13    -0.22     0.21792" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1e+16" upper="1e+16" effort="0.0" velocity="0.0"/>
+  </joint>
+
+  <joint name="iris_demo__iris__rotor_1_joint" type="revolute">
+    <parent link="iris_demo__iris__base_link"/>
+    <child link="iris_demo__iris__rotor_1"/>
+    <origin xyz="-0.13     0.2      0.21792" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1e+16" upper="1e+16" effort="0.0" velocity="0.0"/>
+  </joint>
+
+  <joint name="iris_demo__iris__rotor_2_joint" type="revolute">
+    <parent link="iris_demo__iris__base_link"/>
+    <child link="iris_demo__iris__rotor_2"/>
+    <origin xyz="0.13    0.22    0.21792" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1e+16" upper="1e+16" effort="0.0" velocity="0.0"/>
+  </joint>
+
+  <joint name="iris_demo__iris__rotor_3_joint" type="revolute">
+    <parent link="iris_demo__iris__base_link"/>
+    <child link="iris_demo__iris__rotor_3"/>
+    <origin xyz="-0.13    -0.2      0.21792" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1e+16" upper="1e+16" effort="0.0" velocity="0.0"/>
+  </joint>
+
+  <joint name="iris_demo__gimbal_small_2d__tilt_joint" type="revolute">
+    <parent link="iris_demo__gimbal_small_2d__base_link"/>
+    <child link="iris_demo__gimbal_small_2d__tilt_link"/>
+    <origin xyz="0   0   0.02" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.1" upper="3.14159265" effort="10.0" velocity="-1.0"/>
+  </joint>
+
+
+  <joint name="iris_demo__gimbal_small_2d__base_camera_joint" type="fixed">
+    <parent link="iris_demo__gimbal_small_2d__tilt_link"/>
+    <child link="iris_demo__gimbal_small_2d__camera"/>
+    <origin xyz="0   0  0" rpy="1.57 0   1.57"/>
+    <axis xyz="0.0e+00 1.0e+00 7.9e-04"/>
+    <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+  </joint>
+-->
+    <joint name="iris_demo__hokuyo_joint" type="fixed">
+        <parent link="iris_demo__iris__base_link" />
+        <child link="iris_demo__hokuyo_link" />
+        <origin xyz="0   0   0.27" rpy="0 0 0" />
+        <axis xyz="0 0 0" />
+        <limit lower="0" upper="0" effort="0" velocity="0" />
+    </joint>
+    <link name="iris_demo__iris__base_link">
+        <inertial>
+            <mass value="1.5" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.008" ixy="0" ixz="0" iyy="0.015" iyz="0" izz="0.017" />
+        </inertial>
+        <collision name="iris_demo__iris__base_link_collision">
+            <origin xyz="0  0  0.19492" rpy="0 0 0" />
+            <geometry>
+                <box size="1 1 1"/>
+            </geometry>
+        </collision>
+        <visual name="iris_demo__iris__base_link_visual">
+            <origin xyz="0      0      0.19492" rpy="0 0 -1.5708" />
+            <geometry>
+                <mesh filename="file:///home/dan/catkin_ws/src/iq_sim/models/iris_with_standoffs/meshes/iris.dae" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="iris_demo__iris__iris/ground_truth/odometry_sensorgt_link">
+        <inertial>
+            <mass value="0.15" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0002" iyz="0" izz="0.0002" />
+        </inertial>
+    </link>
+    <link name="iris_demo__iris__iris/imu_link">
+        <inertial>
+            <mass value="0.15" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00002" iyz="0" izz="0.00002" />
+        </inertial>
+    </link>
+    <!--
+  <link name="iris_demo__iris__rotor_0">
+    <inertial>
+      <mass value="0.025"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="9.75e-06" ixy="0" ixz="0" iyy="0.000166704" iyz="0" izz="0.000167604"/>
+    </inertial>
+
+    <collision name="iris_demo__iris__rotor_0_collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.005"/>
+      </geometry>
+    </collision>
+
+    <visual name="iris_demo__iris__rotor_0_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/dan/catkin_ws/src/iq_sim/models/iris_with_standoffs/meshes/iris_prop_ccw.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="iris_demo__iris__rotor_1">
+    <inertial>
+      <mass value="0.025"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="9.75e-06" ixy="0" ixz="0" iyy="0.000166704" iyz="0" izz="0.000167604"/>
+    </inertial>
+
+    <collision name="iris_demo__iris__rotor_1_collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.005"/>
+      </geometry>
+    </collision>
+
+    <visual name="iris_demo__iris__rotor_1_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/dan/catkin_ws/src/iq_sim/models/iris_with_standoffs/meshes/iris_prop_ccw.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="iris_demo__iris__rotor_2">
+    <inertial>
+      <mass value="0.025"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="9.75e-06" ixy="0" ixz="0" iyy="0.000166704" iyz="0" izz="0.000167604"/>
+    </inertial>
+
+    <collision name="iris_demo__iris__rotor_2_collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.005"/>
+      </geometry>
+    </collision>
+
+    <visual name="iris_demo__iris__rotor_2_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/dan/catkin_ws/src/iq_sim/models/iris_with_standoffs/meshes/iris_prop_ccw.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="iris_demo__iris__rotor_3">
+    <inertial>
+      <mass value="0.025"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="9.75e-06" ixy="0" ixz="0" iyy="0.000166704" iyz="0" izz="0.000167604"/>
+    </inertial>
+
+    <collision name="iris_demo__iris__rotor_3_collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.005"/>
+      </geometry>
+    </collision>
+
+    <visual name="iris_demo__iris__rotor_3_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/dan/catkin_ws/src/iq_sim/models/iris_with_standoffs/meshes/iris_prop_ccw.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="iris_demo__gimbal_small_2d__tilt_link">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+    </inertial>
+
+    <collision name="iris_demo__gimbal_small_2d__tilt_col">
+      <origin xyz="0     0    -0.025" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/dan/catkin_ws/src/iq_sim/models/gimbal_small_2d/meshes/tilt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <collision name="iris_demo__gimbal_small_2d__camera_col">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.025" length="0.050"/>
+      </geometry>
+    </collision>
+
+    <visual name="iris_demo__gimbal_small_2d__tilt_viz">
+      <origin xyz="0     0    -0.025" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/dan/catkin_ws/src/iq_sim/models/gimbal_small_2d/meshes/tilt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <visual name="iris_demo__gimbal_small_2d__camera_viz">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.025" length="0.050"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="iris_demo__gimbal_small_2d__base_link">
+    <inertial>
+      <mass value="0.2"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+    </inertial>
+
+    <collision name="iris_demo__gimbal_small_2d__base_col">
+      <origin xyz="0.01   0.075 -0.025" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.05 0.15"/>
+      </geometry>
+    </collision>
+
+    <visual name="iris_demo__gimbal_small_2d__base_main_viz">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/dan/catkin_ws/src/iq_sim/models/gimbal_small_2d/meshes/base_main.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <visual name="iris_demo__gimbal_small_2d__base_arm_viz">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/dan/catkin_ws/src/iq_sim/models/gimbal_small_2d/meshes/base_arm.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="iris_demo__gimbal_small_2d__camera">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+
+    <visual name="camera_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.025" length="0.025"/>
+      </geometry>
+    </visual>
+  </link>
+-->
+    <link name="iris_demo__hokuyo_link">
+        <inertial>
+            <mass value="0.016" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+        </inertial>
+        <collision name="hokuyo_collision">
+            <origin xyz="0  0  0.025" rpy="0 0 0" />
+            <geometry>
+                <box size="0.08 0.08 0.08" />
+            </geometry>
+        </collision>
+        <visual name="hokuyo_visual">
+            <origin xyz="0   0   0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file:///home/dan/catkin_ws/src/iq_sim/models/hokuyo/meshes/hokuyo.dae" scale="1.0 1.0 1.0" />
+            </geometry>
+        </visual>
+    </link>
+    <gazebo>
+        <plugin name="gazebo_ros_control">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>
+

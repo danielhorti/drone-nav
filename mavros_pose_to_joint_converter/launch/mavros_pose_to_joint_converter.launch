@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="mavros_pose_to_joint_node" pkg="mavros_pose_to_joint_converter" type="mavros_pose_to_joint_node" output="screen" />
+  
+</launch>
+

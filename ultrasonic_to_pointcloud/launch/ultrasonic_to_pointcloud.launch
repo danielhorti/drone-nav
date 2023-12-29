@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="ultrasonic_to_pointcloud" pkg="ultrasonic_to_pointcloud" type="ultrasonic_to_pointcloud_node.py" output="screen" />
+    
+</launch>
+

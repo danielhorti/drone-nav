@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<COLLADA version="1.4.1" xmlns="http://www.collada.org/2005/11/COLLADASchema">
+  <asset>
+    <contributor>
+      <authoring_tool>Blender 2.92.0</authoring_tool>
+    </contributor>
+    <unit meter="1.000000000000" name="meter"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_materials>
+    <material id="Material" name="Material">
+      <instance_effect url="#Material-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="Material-fx">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <diffuse>
+              <color>1.000000 1.000000 1.000000 1.000000</color>
+            </diffuse>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="Motor" name="Motor">
+      <mesh>
+        <source id="Motor-Position">
+          <float_array id="Motor-Position-array" count="9">0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 1.000000 0.000000</float_array>
+          <technique_common>
+            <accessor count="3" source="#Motor-Position-array" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Motor-Normal">
+          <float_array id="Motor-Normal-array" count="9">0.000000 0.000000 1.000000 0.000000 0.000000 1.000000 0.000000 0.000000 1.000000</float_array>
+          <technique_common>
+            <accessor count="3" source="#Motor-Normal-array" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Motor-Vertex">
+          <input semantic="POSITION" source="#Motor-Position"/>
+        </vertices>
+        <polylist count="2" material="Material" name="Motor">
+          <input offset="0" semantic="VERTEX" source="#Motor-Vertex"/>
+          <input offset="1" semantic="NORMAL" source="#Motor-Normal"/>
+          <vcount>3 3</vcount>
+          <p>0 0 0 1 1 1</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Motor" name="Motor">
+        <translate sid="translate">0.000000 0.000000 0.000000</translate>
+        <rotate sid="rotateZ">0.000000 0.000000 1.000000 0.000000</rotate>
+        <rotate sid="rotateY">0.000000 1.000000 0.000000 0.000000</rotate>
+        <rotate sid="rotateX">1.000000 0.000000 0.000000 0.000000</rotate>
+        <scale sid="scale">1.000000 1.000000 1.000000</scale>
+        <instance_geometry url="#Motor">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Material" target="#Material">
+                <bind_vertex_input semantic="UVSET0" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
+

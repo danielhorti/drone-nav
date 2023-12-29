@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: iq_sim
+    relative_path: urdf/iris_urdf.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/iris_demo.srdf
+  CONFIG:
+    author_name: Daniel Horti
+    author_email: danibit256@gmail.com
+    generated_timestamp: 1690552985

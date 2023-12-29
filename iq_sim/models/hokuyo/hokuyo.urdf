@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<robot name="gimbal_small_2d">
+  <joint name="gimbal_small_2d__base_camera_joint" type="fixed">
+    <parent link="gimbal_small_2d__iris__iris_demo__gimbal_small_2d__tilt_link"/>
+    <child link="gimbal_small_2d__camera"/>
+    <origin xyz="0   -0.01  0.25" rpy="1.57 0   1.57"/>
+    <axis xyz="0.0e+00 1.0e+00 7.9e-04"/>
+    <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="gimbal_small_2d__hokuyo_joint" type="fixed">
+    <parent link="gimbal_small_2d__iris__iris_demo__iris__base_link"/>
+    <child link="gimbal_small_2d__hokuyo_link"/>
+    <origin xyz="0   0   0.18" rpy="0 0 0"/>
+    <axis xyz="0 0 0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+
+  <link name="gimbal_small_2d__camera">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+    <visual name="gimbal_small_2d__visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.025" length="0.025"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="gimbal_small_2d__hokuyo_link">
+    <inertial>
+      <mass value="0.016"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+    </inertial>
+    <collision name="gimbal_small_2d__collision">
+      <origin xyz="0  0  0.3" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+    <visual name="gimbal_small_2d__visual">
+      <origin xyz="0   0   0.27" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://PATHTOMESHES/meshes/hokuyo.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

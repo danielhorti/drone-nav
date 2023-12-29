@@ -1,0 +1,30 @@
+<launch>
+  <!--
+  <node name="action_controller" pkg="action_controller" type="action_controller" ></node>
+  -->
+  
+  <!-- Add controller plugin / MoveItSimpleControllerManager -->
+  <!--
+  <include file="$(find iris_moveit)/launch/iris_demo_moveit_controller_manager.launch"/>
+  -->
+
+  <!-- Run the main MoveIt executable -->
+  <include file="$(find iris_moveit)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="fake_execution" value="false"/> <!-- Must be false when Quad controller is properly setup to process requests from waypoint publisher -->
+    <arg name="info" value="false"/>
+    <arg name="debug" value="false"/>
+    
+    <!--Arguments not used
+    <arg name="db" default="true" />
+    -->
+  </include>
+
+  <!-- Visualization RVIZ -->
+  <!--
+  <node pkg="rviz" type="rviz" name="rviz" output="screen"/>
+  -->
+  <!--
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find quad_3dnav)/resource/moveit.rviz" output="screen"/>
+  -->
+</launch>

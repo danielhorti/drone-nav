@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- UPLOAD ROBOT DESCRIPTION TO PARAMETER SERVER-->
+  <param name="robot_description" command="$(find xacro)/xacro $(find iq_sim)/urdf/iris_urdf.urdf" />
+  
+  <!-- LAUNCH ROBOT STATE PUBLISHER -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0 0 0 0 0 0 map odom 100"/>
+
+  <node name="laser_to_pointcloud" pkg="laser_to_pointcloud" type="laser_to_pointcloud.py" output="screen" />
+  
+  <!--
+  <node name="odom_to_map_tf_broadcaster" pkg="laser_to_pointcloud" type="broadcast_map_to_odom.py" />
+  -->
+  
+</launch>
+

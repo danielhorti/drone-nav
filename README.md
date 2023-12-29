@@ -9,7 +9,10 @@ The drone has a 2D Lidar on top, this is used for creating a detailed OctoMap of
 
 ## Installation and Setup Instructions
 This package was tested with ROS Noetic and Ubuntu 20.04.
+To get rid of the performance overhead, it is recommended to use Ubuntu installed natively instead of using a VM.
 If you don't have ROS installed, here is a detailed guide on how to install it https://wiki.ros.org/noetic/Installation/Ubuntu
+
+If you don't have a catkin_ws, follow the steps below to create one:
 
 Installing dependencies
 ```
@@ -17,7 +20,7 @@ sudo apt install git
 ```
 
 ### ArduPilot
-Clone the official repository
+Clone the official ArduPilot repository
 ```
 cd ~
 git clone https://github.com/ArduPilot/ardupilot.git

@@ -33,7 +33,7 @@ catkin build
 ```
 Source the setup file in the devel directory. This will make the workspace visible to ROS.
 ```
-source devel/setup.bash
+source ~/catkin_ws/devel/setup.bash
 ```
 
 
@@ -50,9 +50,8 @@ git clone https://github.com/danielhorti/drone-nav.git
 ```
 ```
 cd ~/catkin_ws/
-source ~/catkin_ws/devel/setup.bash
-source /opt/ros/noetic/setup.bash
 catkin build
+source ~/catkin_ws/devel/setup.bash
 ```
 
 ### ArduPilot

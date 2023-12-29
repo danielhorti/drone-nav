@@ -17,12 +17,12 @@ find_package(catkin COMPONENTS
   REQUIRED)
 
 # Prioritize the specific include directory.
-include_directories($ENV{HOME}/catkin_ws/src/moveit_simple_controller_manager/include/moveit_simple_controller_manager)
+include_directories($ENV{HOME}/catkin_ws/src/drone-nav/moveit_simple_controller_manager/include/moveit_simple_controller_manager)
 
 
 # Other include directories.
 include_directories(
-  $ENV{HOME}/catkin_ws/src/action_controller/include
+  $ENV{HOME}/catkin_ws/src/drone-nav/action_controller/include
   ${catkin_INCLUDE_DIRS}
   include
   SYSTEM ${Boost_INCLUDE_DIR} 

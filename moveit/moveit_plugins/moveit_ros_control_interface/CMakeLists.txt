@@ -29,6 +29,7 @@ catkin_package(
 
 include_directories(include)
 include_directories(SYSTEM ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+include_directories($ENV{HOME}/catkin_ws/src/drone-nav/moveit_simple_controller_manager/include)
 
 add_library(${PROJECT_NAME}_plugin
   src/controller_manager_plugin.cpp

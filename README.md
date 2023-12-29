@@ -12,74 +12,96 @@ This package was tested with ROS Noetic and Ubuntu 20.04.
 To get rid of the performance overhead, it is recommended to use Ubuntu installed natively instead of using a VM.
 If you don't have ROS installed, here is a detailed guide on how to install it https://wiki.ros.org/noetic/Installation/Ubuntu
 
-If you don't have a catkin_ws, follow the steps below to create one:
+### catkin_ws
+Skip this section if you already have a catkin_ws.
 
-Installing dependencies
+Create a workspace directory.
+```
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws
+```
+If you haven't installed catkin_tools yet, you can do so.
+```
+sudo apt-get update
+sudo apt-get install python3-catkin-tools
+```
+
+Initialize and build the catkin workspace.
+```
+catkin init
+catkin build
+```
+Source the setup file in the devel directory. This will make the workspace visible to ROS.
+
+
+
+
+Install dependencies.
 ```
 sudo apt install git
 ```
 
 ### ArduPilot
-Clone the official ArduPilot repository
+Clone the official ArduPilot repository.
 ```
 cd ~
 git clone https://github.com/ArduPilot/ardupilot.git
 cd ardupilot
 ```
 
-Install dependencies
+Install dependencies.
 ```
 cd ardupilot
 Tools/environment_install/install-prereqs-ubuntu.sh -y
 ```
 
-Reload profile
+Reload profile.
 ```
 . ~/.profile
 ```
 
-ArduCopter 4.3.4 was used for testing
+ArduCopter 4.3.4 was used for testing.
 ```
 git checkout Copter-4.3.4
 git submodule update --init --recursive
 ```
 
-Start ArduPilot SITL to set params
+Start ArduPilot SITL to set params.
 ```
 cd ~/ardupilot/ArduCopter
 sim_vehicle.py -w
 ```
 
 ### Gazebo
-Accept software from http://packages.osrfoundation.org
+Accept software from http://packages.osrfoundation.org.
 ```
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
 ```
 
-Setup keys
+Setup keys.
 ```
 wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
 ```
 
-Reload software list
+Reload software list.
 ```
 sudo apt update
 ```
 
-Install Gazebo (Ubuntu 20.04)
+Install Gazebo (Ubuntu 20.04).
 ```
 sudo apt-get install gazebo11 libgazebo11-dev
 ```
 
 
-Install Gazebo plugin for APM (ArduPilot Master)
+Install Gazebo plugin for APM (ArduPilot Master).
 ```
 cd ~
 git clone https://github.com/khancyr/ardupilot_gazebo.git
 cd ardupilot_gazebo
 ```
 
-Build and install plugin
+Build and install plugin.
 ```
 mkdir build
 cd build
@@ -91,7 +113,7 @@ sudo make install
 echo 'source /usr/share/gazebo/setup.sh' >> ~/.bashrc
 ```
 
-Setup paths for models
+Setup paths for models.
 ```
 echo 'export GAZEBO_MODEL_PATH=~/ardupilot_gazebo/models' >> ~/.bashrc
 . ~/.bashrc

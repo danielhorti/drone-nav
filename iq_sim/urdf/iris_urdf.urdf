@@ -107,7 +107,7 @@
     <visual name="iris_demo__iris__base_link_visual">
       <origin xyz="0      0      0.19492" rpy="0 0 -1.5708"/>
       <geometry>
-        <mesh filename="file:///home/dan/catkin_ws/src/iq_sim/models/iris_with_standoffs/meshes/iris.dae" scale="1.0 1.0 1.0"/>
+        <mesh filename="package://iq_sim/models/iris_with_standoffs/meshes/iris.dae" scale="1.0 1.0 1.0"/>
       </geometry>
     </visual>
 
@@ -308,7 +308,7 @@
     <visual name="hokuyo_visual">
       <origin xyz="0   0   0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="file:///home/dan/catkin_ws/src/iq_sim/models/hokuyo/meshes/hokuyo.dae" scale="1.0 1.0 1.0"/>
+        <mesh filename="package://iq_sim/models/hokuyo/meshes/hokuyo.dae" scale="1.0 1.0 1.0"/>
       </geometry>
     </visual>
   </link>

@@ -1,0 +1,20 @@
+<launch>
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <arg name="gui" default="true"/>
+
+  <!-- LAUNCH GAZEBO -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find iq_sim)/worlds/warehouse.world"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <!-- more default parameters can be changed here -->
+  </include>
+
+  <!--
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  -->
+
+  <!-- NO need to spawn robot using URDF, robot is spawned into Gazebo using the .world file
+  <param name="robot_description" command="$(find xacro)/xacro $(find iq_sim)/urdf/iris_with_standoffs.urdf" />
+  <node name="robot_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model iris -param robot_description"/>
+  -->
+</launch>

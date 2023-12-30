@@ -40,7 +40,7 @@ source ~/catkin_ws/devel/setup.bash
 ### Install dependencies for this repository.
 ```
 sudo apt-get update
-sudo apt install git ros-noetic-ompl
+sudo apt install git ros-noetic-ompl ros-noetic-tf2-sensor-msgs
 ```
 
 ### Clone and build this repository

@@ -1250,7 +1250,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://ngd1004/models/warehouse/meshes/warehouse.dae</uri>
+              <uri>model://ngd1004/models/warehouse/1/meshes/warehouse.dae</uri>
             </mesh>
           </geometry>
         </visual>
@@ -1259,7 +1259,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://ngd1004/models/warehouse/meshes/warehouse.dae</uri>
+              <uri>model://ngd1004/models/warehouse/1/meshes/warehouse.dae</uri>
               <submesh>
                 <name>drop1</name>
                 <center>1</center>

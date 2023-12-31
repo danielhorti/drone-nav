@@ -1,11 +1,11 @@
-# Description
+# Project Overview
 Experimental simulation environment in ROS for drone navigation with MoveIt!, using 2D Lidar and ultrasonic sensors.
 
-## Project Overview
+## Description
 The modified version of the MoveIt! planning framework is used in this project to support aerial navigation, using OMPL's path planning algorithms for three-dimensional path planning, integrating it with the drone's control system.
 ArduPilot SITL is used for simulating the flight controller of the drone and MAVROS is used as a bridge between ROS nodes and the flight controller. The drone, sensors and obstacles are simulated in Gazebo.
 
-The drone has a 2D Lidar on top, this is used for creating a detailed OctoMap of its surroundings. This map is crucial for the initial path planning, providing a comprehensive layout of the environment. The drone can't execute automatic mapping, it has to be controlled manually to fly around in manual control mode using a teleop node for controlling the drone. Once the the map is ready, a 3D path can be generated and executed using MoveIt! through Rviz.
+The drone has a 2D Lidar on top, this is used for creating a detailed OctoMap of its surroundings. This map is crucial for the initial path planning, providing a comprehensive layout of the environment. The drone can't execute automatic mapping, it has to be controlled manually to fly around in manual control mode using a keyboard teleop node for controlling the drone. Once the the map is ready, a 3D path can be generated and executed using MoveIt! through Rviz.
 
 ## Installation and Setup Instructions
 This package was tested with ROS Noetic and Ubuntu 20.04.
@@ -13,7 +13,7 @@ To get rid of the performance overhead, it is recommended to use Ubuntu installe
 If you don't have ROS installed, here is a detailed guide on how to install it https://wiki.ros.org/noetic/Installation/Ubuntu
 
 ### catkin_ws
-Skip this section if you already have a catkin_ws.
+**Notice**: Skip this section if you already have a catkin_ws.
 
 Create a workspace directory
 ```
@@ -156,9 +156,10 @@ arm throttle
 ```
 takeoff 2
 ```
-![Alt text](images/mav_terminal.png)
+![mav terminal](images/mav_terminal.png)
 
 **Notice**: Make sure you don't wait for too long after arming the drone, because it may stop spinning the propellers and won't take off.
+
 
 Now the drone is in the air and ready to fly around.
 For that, you may use the keyboard by launching the teleop node:
@@ -170,6 +171,21 @@ For that, you may use the keyboard by launching the teleop node:
 The drone keeps mapping it's environment with the 2D lidar on the top of the drone. You can see in Rviz how the map is being extended as the drone moves around.
 Launch and use the teleop node for moving the drone manually. Creating a map of the environment is needed for path planning and navigation.
 
+![octomap](images/Octomap_3D.png)
+
 Use the MoveIt! MotionPlanning display in Rviz for planning and executing a path.
 Set the goal pose by dragging the state marker to a desired position and make sure to set the start state "current". Verify that the poses are where they should be and adjust if needed.
 If the poses are good, you can press the "Plan and Execute" button to plan the path and execute trajectory.
+
+![planned path](images/planned_path_from_above_4_4_v2.png)
+
+
+## Acknowledgements
+
+I would like to extend my heartfelt gratitude to the following individuals whose work and contributions have significantly aided the development of this project:
+
+- **Alessio Tonioni**: A special thanks to Alessio Tonioni for the development of modifications needed for MoveIt! [Autonomous-Flight-ROS](https://github.com/AlessioTonioni/Autonomous-Flight-ROS). Alessio's pioneering work and valuable insights in the field of autonomous flight and ROS integration have been instrumental in shaping various aspects of this project.
+
+- **Eric Johnson - Intelligent Quads**: My sincere appreciation goes to Eric for his work at [Intelligent Quads](https://github.com/Intelligent-Quads). His innovative approach and contributions to the drone technology community have been a source of inspiration and practical knowledge that greatly benefited this project.
+
+Their dedication and expertise in the field have not only propelled this project forward but also contributed significantly to the broader community, helping those who want to learn developing drone applications. I am deeply thankful for their openness in sharing knowledge and resources, which has made a substantial impact on the success of this work.

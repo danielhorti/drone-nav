@@ -131,3 +131,45 @@ Setup paths for models
 echo 'export GAZEBO_MODEL_PATH=~/ardupilot_gazebo/models:~/catkin_ws/src/drone-nav/iq_sim/models' >> ~/.bashrc
 . ~/.bashrc
 ```
+## Running the simulation
+After setting up everything successfully, the simulation is ready to be launched.
+You can launch the nodes and scripts one by one or use the provided simulation launch script.
+This launch script will start every component and open new windows such as Gazebo, Rviz and ArduPilot SITL.
+```
+~/catkin_ws/src/drone-nav/launch_simulation.sh
+```
+Wait until everything is up and running, this may take some time.
+A Gazebo world is being launched with a warehouse, few shelfs and boxes.
+New terminal windows pop up, the drone is initializing communication and mavros is being launched as well.
+First you need to make sure the drone is ready to take off.
+For this, check Rviz and make sure of that there are no TF tree related errors. This is crucial for mapping and navigation.
+
+Once the drone is ready to fly and the sensor readings are being displayed in Rviz, it's time to take off the drone.
+Use the SITL terminal to arm the drone and take off.
+Open the terminal, press ENTER and type:
+```
+mode guided
+```
+```
+arm throttle
+```
+```
+takeoff 2
+```
+![Alt text](images/mav_terminal.png)
+
+**Notice**: Make sure you don't wait for too long after arming the drone, because it may stop spinning the propellers and won't take off.
+
+Now the drone is in the air and ready to fly around.
+For that, you may use the keyboard by launching the teleop node:
+```
+~/catkin_ws/src/drone-nav/iq_sim/scripts/move_drone.py
+```
+
+### Mapping and navigation
+The drone keeps mapping it's environment with the 2D lidar on the top of the drone. You can see in Rviz how the map is being extended as the drone moves around.
+Launch and use the teleop node for moving the drone manually. Creating a map of the environment is needed for path planning and navigation.
+
+Use the MoveIt! MotionPlanning display in Rviz for planning and executing a path.
+Set the goal pose by dragging the state marker to a desired position and make sure to set the start state "current". Verify that the poses are where they should be and adjust if needed.
+If the poses are good, you can press the "Plan and Execute" button to plan the path and execute trajectory.

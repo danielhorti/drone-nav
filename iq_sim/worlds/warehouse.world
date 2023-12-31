@@ -1228,7 +1228,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/dan/.gazebo/models/Warehouse/meshes/warehouse_colision.stl</uri>
+              <uri>model://ngd1004/models/warehouse/1/meshes/warehouse_colision.stl</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -1250,7 +1250,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/dan/.gazebo/models/Warehouse/meshes/warehouse.dae</uri>
+              <uri>model://ngd1004/models/warehouse/meshes/warehouse.dae</uri>
             </mesh>
           </geometry>
         </visual>
@@ -1259,7 +1259,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/dan/.gazebo/models/Warehouse/meshes/warehouse.dae</uri>
+              <uri>model://ngd1004/models/warehouse/meshes/warehouse.dae</uri>
               <submesh>
                 <name>drop1</name>
                 <center>1</center>
@@ -1304,7 +1304,7 @@
           <geometry>
             <mesh>
               <scale>0.2 0.3 0.3</scale>
-              <uri>/home/dan/.ignition/fuel/fuel.gazebosim.org/ngd1004/models/shelf/1/meshes/shelf_big_movai.dae</uri>
+              <uri>model://ngd1004/models/shelf/1/meshes/shelf_big_movai.dae</uri>
             </mesh>
           </geometry>
         </visual>
@@ -1345,7 +1345,7 @@
           <geometry>
             <mesh>
               <scale>0.2 0.3 0.3</scale>
-              <uri>/home/dan/.ignition/fuel/fuel.gazebosim.org/ngd1004/models/shelf/1/meshes/shelf_big_movai.dae</uri>
+              <uri>model://ngd1004/models/shelf/1/meshes/shelf_big_movai.dae</uri>
             </mesh>
           </geometry>
         </visual>
@@ -1386,7 +1386,7 @@
           <geometry>
             <mesh>
               <scale>0.2 0.3 0.3</scale>
-              <uri>/home/dan/.ignition/fuel/fuel.gazebosim.org/ngd1004/models/shelf/1/meshes/shelf_big_movai.dae</uri>
+              <uri>model://ngd1004/models/shelf/1/meshes/shelf_big_movai.dae</uri>
             </mesh>
           </geometry>
         </visual>
@@ -1427,7 +1427,7 @@
           <geometry>
             <mesh>
               <scale>0.2 0.3 0.3</scale>
-              <uri>/home/dan/.ignition/fuel/fuel.gazebosim.org/ngd1004/models/shelf/1/meshes/shelf_big_movai.dae</uri>
+              <uri>model://ngd1004/models/shelf/1/meshes/shelf_big_movai.dae</uri>
             </mesh>
           </geometry>
         </visual>
@@ -1468,7 +1468,7 @@
           <geometry>
             <mesh>
               <scale>0.2 0.3 0.3</scale>
-              <uri>/home/dan/.ignition/fuel/fuel.gazebosim.org/ngd1004/models/shelf/1/meshes/shelf_big_movai.dae</uri>
+              <uri>model://ngd1004/models/shelf/1/meshes/shelf_big_movai.dae</uri>
             </mesh>
           </geometry>
         </visual>
@@ -1509,7 +1509,7 @@
           <geometry>
             <mesh>
               <scale>0.2 0.3 0.3</scale>
-              <uri>/home/dan/.ignition/fuel/fuel.gazebosim.org/ngd1004/models/shelf/1/meshes/shelf_big_movai.dae</uri>
+              <uri>model://ngd1004/models/shelf/1/meshes/shelf_big_movai.dae</uri>
             </mesh>
           </geometry>
         </visual>
